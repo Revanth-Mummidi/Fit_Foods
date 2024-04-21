@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
+import { foodAllergies } from "../../data/data";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllergiesAction } from "./redux/AllergiesSlice";
 
 function Allergies() {
   return (
@@ -13,15 +16,10 @@ function Allergies() {
 export default Allergies;
 
 function ParentComponent() {
-  const [Allergies, setAllergies] = useState([]);
-  const [tagSuggestions, setTagSuggestions] = useState([
-    "Eggs",
-    "Milk",
-    "Mustard",
-    "Peanuts",
-    "Soy",
-    "Fish",
-  ]);
+  const dispatch=useDispatch();
+  const Allergy=useSelector(state=>state.allergyslice);
+  const [Allergies, setAllergies] = useState(Allergy.allergy);
+  const [tagSuggestions, setTagSuggestions] = useState(foodAllergies);
   useEffect(()=>{
     let arr=tagSuggestions.filter((item,index)=>{
       if(!Allergies.find((currentVal,idx,arr)=>{
@@ -35,6 +33,7 @@ function ParentComponent() {
       }
     })
     setTagSuggestions(arr);
+    dispatch(setAllergiesAction(Allergies));
   },[Allergies]);
 
   const addAllergies = (newAllergies) => {

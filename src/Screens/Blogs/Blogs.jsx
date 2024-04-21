@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar'
-import HeadlineCards from './HeadlineCards';
+import Navbar from '../../components/Navbar'
+import HeadlineCards from '../HomeScreen/Components/HeadlineCards';
 
 function Blogs() {
   return (

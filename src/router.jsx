@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomeScreen from "./components/HomeScreen";
-import HealthIssues from "./components/HealthIssues";
-import UserProfile from "./components/UserProfile";
-import Allergies from "./components/Allergies";
-import Document from "./components/Document";
-import Blogs from "./components/Blogs";
+import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import HealthIssues from "./Screens/HealthIssuesScreen/HealthIssues";
+import UserProfile from "./Screens/UserProfile/UserProfile";
+import Allergies from "./Screens/AllergiesScreen/Allergies";
+import Document from "./Screens/UploadDocument/Document";
+import Blogs from "./Screens/Blogs/Blogs";
 import LoginScreen from "./Screens/AuthScreen/LoginScreen";
 import AuthLayout from "./Screens/AuthScreen/AuthLayout";
 import SignupScreen from "./Screens/AuthScreen/SignupScreen";

@@ -12,12 +12,15 @@ import {CgWebsite} from "react-icons/cg";
 import { MdFavorite, MdHelp } from "react-icons/md";
 import RiveComponent from "@rive-app/canvas";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signOut } from "firebase/auth";
+import { signOutUser } from "../Screens/AuthScreen/redux/AuthSlice";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const Auth=useSelector(state=>state.authslice);
-  
+  const navigation = useNavigate();
   const location=useLocation();
+  const dispatch=useDispatch();
   return (
     <>
       <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
@@ -46,6 +49,8 @@ const Navbar = () => {
         {(Auth.isAuthenticated)?(
         <button onClick={()=>{
           console.log("Auth = ",Auth.user);
+          dispatch(signOutUser());
+          navigation('/');        
         }} className="bg-black mx-2 text-white hidden md:flex items-center py-2 rounded-full">
           <img src={Auth.user.photoURL} className="mr-4 h-7 w-7 rounded-full" />
           Logout

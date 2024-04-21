@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from './Navbar'
-import CenteredCard from './CenteredCard'
+import Navbar from '../../components/Navbar'
+import CenteredCard from './Components/CenteredCard'
 function UserProfile() {
   return (
     <div>

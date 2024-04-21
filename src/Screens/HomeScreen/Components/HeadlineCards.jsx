@@ -1,5 +1,5 @@
 import React from "react";
-import { categories } from "../data/data";
+import { categories } from "../../../data/data";
 
 const HeadlineCards = () => {
   const list = [

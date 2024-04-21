@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-import { data } from "../data/data.js";
+import {  HealthyFoodItems, UnhealthyFoodItems } from "../../../data/data.js";
 
 const SuggestedFood = () => {
   //   console.log(data);
-  const [foods, setFoods] = useState(data);
+  // const [foods, setFoods] = useState(data);
 
-  //   Filter Type burgers/pizza/etc
-  const filterType = (category) => {
-    setFoods(
-      data.filter((item) => {
-        return item.category === category;
-      })
-    );
-  };
+  // //   Filter Type burgers/pizza/etc
+  // const filterType = (category) => {
+  //   setFoods(
+  //     data.filter((item) => {
+  //       return item.category === category;
+  //     })
+  //   );
+  // };
 
-  //   Filter by price
-  const filterPrice = (price) => {
-    setFoods(
-      data.filter((item) => {
-        return item.price === price;
-      })
-    );
-  };
+  // //   Filter by price
+  // const filterPrice = (price) => {
+  //   setFoods(
+  //     data.filter((item) => {
+  //       return item.price === price;
+  //     })
+  //   );
+  // };
 
   return (
     <div className="max-w-[1640px] m-auto px-4 ">
@@ -45,7 +45,7 @@ const SuggestedFood = () => {
 };
 
 function Consumable() {
-  const [foods, setFoods] = useState(data);
+  const [foods, setFoods] = useState(HealthyFoodItems);
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
@@ -74,7 +74,7 @@ function Consumable() {
 }
 
 function NonConsumable() {
-  const [foods, setFoods] = useState(data);
+  const [foods, setFoods] = useState(UnhealthyFoodItems);
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">

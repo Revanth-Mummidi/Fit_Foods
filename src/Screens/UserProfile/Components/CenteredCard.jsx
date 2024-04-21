@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const UserProfileCard = () => {
   const Auth=useSelector(state=>state.authslice);
-  const fname=Auth.user.displayName.split(" ")[0];
-  const lname=Auth.user.displayName.split(" ")[1];
+  
   const [userId, setUserId] = useState();
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState(fname);
-  const [lastName, setLastName] = useState(lname);
-  const [email, setEmail] = useState(Auth.user.email);
-  const [phone_number, setphone_number] = useState(Auth.user.phoneNumber);
-  const [newImage, setNewImage] = useState(Auth.user.photoURL);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone_number, setphone_number] = useState("");
+  const [newImage, setNewImage] = useState("");
   const [editMode, setEditMode] = useState(false);
-
+  
+  useEffect(()=>{
+    if(Auth.isAuthenticated){
+    const fname=Auth.user.displayName.split(" ")[0];
+    const lname=Auth.user.displayName.split(" ")[1];
+    setFirstName(fname);
+    setLastName(lname);
+    setEmail(Auth.user.email);
+    setphone_number(Auth.user.phoneNumber);
+    setNewImage(Auth.user.photoURL);
+    }
+  },[Auth]);
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -39,7 +49,7 @@ const UserProfileCard = () => {
               className="w-40 h-40 rounded-full mx-auto"
               src={
                 newImage ||
-                "https://www.gravatar.com/avatar/2acfb745ecf9d4dccb3364752d17f65f?s=260&d=mp"
+                "https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"
               }
               alt="John Doe"
             />

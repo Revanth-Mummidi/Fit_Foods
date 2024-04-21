@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
+import { Health_Issues } from "../../data/data";
+import { useDispatch, useSelector } from "react-redux";
+import { setHealthIssuesAction } from "./redux/HealthIssuesSlice";
 
 function HealthIssues() {
   return (
@@ -13,13 +16,10 @@ function HealthIssues() {
 export default HealthIssues;
 
 function ParentComponent() {
-  const [healthIssues, setHealthIssues] = useState([]);
-  const [tagSuggestions, setTagSuggestions] = useState([
-    "Daibeties Type-1",
-    "Diabeties Type-2",
-    "Blood Pressue",
-    "Cholestrol",
-  ]);
+  const dispatch=useDispatch();
+  const HTSlice=useSelector(state=>state.healthissueslice.health_issues);
+  const [healthIssues, setHealthIssues] = useState(HTSlice);
+  const [tagSuggestions, setTagSuggestions] = useState(Health_Issues);
   useEffect(()=>{
     let arr=tagSuggestions.filter((item,index)=>{
       if(!healthIssues.find((currentVal,idx,arr)=>{
@@ -33,6 +33,7 @@ function ParentComponent() {
       }
     })
     setTagSuggestions(arr);
+    dispatch(setHealthIssuesAction(healthIssues));
   },[healthIssues]);
   const addHealthIssue = (newHealthIssue) => {
     setHealthIssues([...healthIssues, newHealthIssue]);

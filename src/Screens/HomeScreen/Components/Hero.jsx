@@ -63,16 +63,17 @@ const Hero = () => {
                 pauseIconColor="white"
                 pauseIconSize="40px"
                 slideBackgroundColor="darkgrey"
-                slideImageFit="cover"
+                slideImageFit="fit"
                 thumbnails={true}
                 thumbnailWidth="100px"
                 style={{
                   textAlign: "center",
-                  // maxWidth: "850px",
+                  // maxWidth: "850px",ob
                   // maxHeight: "500px",
-                
+                  
                   margin: "40px auto",
                 }}
+                
               />
             </div>
           </div>

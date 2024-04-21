@@ -1,11 +1,15 @@
 //const {configureStore} = require('@reduxjs/toolkit');
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import AuthSlice from '../Screens/AuthScreen/redux/AuthSlice';
+import AllergiesSlice from '../Screens/AllergiesScreen/redux/AllergiesSlice';
+import HealthIssuesSlice from '../Screens/HealthIssuesScreen/redux/HealthIssuesSlice';
 // import AuthSlice from '../Screens/AuthScreen/redux/AuthSlice';
 
 
 const rootreducer = combineReducers({
    'authslice':AuthSlice,
+   'allergyslice':AllergiesSlice,
+   'healthissueslice':HealthIssuesSlice
 });
 
 export const store = configureStore({
