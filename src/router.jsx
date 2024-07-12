@@ -8,6 +8,8 @@ import Blogs from "./Screens/Blogs/Blogs";
 import LoginScreen from "./Screens/AuthScreen/LoginScreen";
 import AuthLayout from "./Screens/AuthScreen/AuthLayout";
 import SignupScreen from "./Screens/AuthScreen/SignupScreen";
+import FoodItemScreen from "./Screens/FoodITemScreen/FoodItemScreen";
+import CategoryScreen from "./Screens/Categories/CategoryScreen";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +24,14 @@ export const router = createBrowserRouter([
         path:'/userprofile',
         element:<UserProfile/>
     },
+    {
+       path:'/fooditem/:id',
+       element:<FoodItemScreen/>
+    },
+    {
+      path:'/categories/:id',
+      element:<CategoryScreen/>
+   },
     {
         path:'/allergies',
         element:<Allergies/>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {  HealthyFoodItems, UnhealthyFoodItems } from "../../../data/data.js";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 const SuggestedFood = () => {
   //   console.log(data);
@@ -46,11 +47,14 @@ const SuggestedFood = () => {
 
 function Consumable() {
   const [foods, setFoods] = useState(HealthyFoodItems);
-
+  const navigate=useNavigate();
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
       {foods.slice(0, 4).map((item, index) => (
         <div
+          onClick={()=>{
+            navigate(`/fooditem/${item.name}`)
+          }}
           key={index}
           className="border shadow-lg rounded-lg hover:scale-105 duration-300"
         >
@@ -75,11 +79,14 @@ function Consumable() {
 
 function NonConsumable() {
   const [foods, setFoods] = useState(UnhealthyFoodItems);
-
+  const navigate=useNavigate();
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
       {foods.slice(0, 4).map((item, index) => (
         <div
+        onClick={()=>{
+          navigate(`/fooditem/${item.name}`)
+        }}
           key={index}
           className="border shadow-lg rounded-lg hover:scale-105 duration-300"
         >

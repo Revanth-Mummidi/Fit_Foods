@@ -48,7 +48,7 @@ function ParentComponent() {
   };
 
   return (
-    <div className="container mx-auto p-4 text-white min-h-screen bg-gradient-to-r from-black to-gray-800">
+    <div className=" mx-auto p-4 text-white min-h-screen bg-gradient-to-r from-black to-gray-800">
       <h1 className="text-4xl mb-4">Select Allergies</h1>
       <AllergiesInput
         addAllergies={addAllergies}
@@ -81,7 +81,6 @@ function AllergiesInput({ addAllergies, tagSuggestions }) {
 
   const handleInputChange = (value) => {
     setInputValue(value);
-    // Filter tag suggestions based on input value
     const filteredTags = tagSuggestions.filter((tag) =>
       tag.toLowerCase().includes(value.toLowerCase())
     );

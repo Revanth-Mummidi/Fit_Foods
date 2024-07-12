@@ -48,7 +48,7 @@ function ParentComponent() {
   };
 
   return (
-    <div className="container mx-auto p-4 text-white min-h-screen bg-gradient-to-r from-black to-gray-800">
+    <div className=" mx-auto p-4 text-white min-h-screen bg-gradient-to-r from-black to-gray-800">
       <h1 className="text-4xl mb-4">Select Health Issues</h1>
       <HealthIssueInput
         addHealthIssue={addHealthIssue}

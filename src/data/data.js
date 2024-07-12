@@ -128,7 +128,7 @@ export const UnhealthyFoodItems = [
     },
     {
       id: 10,
-      name: 'Ceasar Salad',
+      name: 'Caesar Salad',
       category: 'salad',
       image:
         'https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2FsYWQlMjBjZWFzYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
@@ -151,6 +151,161 @@ export const UnhealthyFoodItems = [
       price: '$',
     },
   ];
+
+export const completeFoodItems = [
+  {
+    id: 1,
+    name: 'Kale Salad',
+    category: 'salad',
+    image: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2FsYWQlMjBjZWFzYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    price: '$12.99',
+    consumable: true,
+    nutrients: {
+      calories: 150,
+      protein: '5g',
+      fat: '10g',
+      carbohydrates: '12g'
+    },
+    description: 'Kale Salad is packed with nutrients and antioxidants, making it a great choice for a healthy and satisfying meal.'
+  },
+  {
+    id: 2,
+    name: 'Caesar Salad',
+    category: 'salad',
+    image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2FsYWQlMjBjZWFzYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    price: '$15.49',
+    consumable: true,
+    nutrients: {
+      calories: 200,
+      protein: '8g',
+      fat: '15g',
+      carbohydrates: '10g'
+    },
+    description: 'Caesar Salad is a delicious and creamy salad that provides a good balance of protein and healthy fats.'
+  },
+  {
+    id: 3,
+    name: 'Loaded Salad',
+    category: 'salad',
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2FsYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    price: '$18.99',
+    consumable: true,
+    nutrients: {
+      calories: 250,
+      protein: '10g',
+      fat: '20g',
+      carbohydrates: '15g'
+    },
+    description: 'Loaded Salad is a hearty option that includes a variety of toppings, offering a well-rounded meal with ample nutrients.'
+  },
+  {
+    id: 4,
+    name: 'Fruit Salad',
+    category: 'salad',
+    image: 'https://images.unsplash.com/photo-1564093497595-593b96d80180?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnJ1aXQlMjBzYWxhZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+    price: '$9.99',
+    consumable: true,
+    nutrients: {
+      calories: 100,
+      protein: '1g',
+      fat: '0.5g',
+      carbohydrates: '25g'
+    },
+    description: 'Fruit Salad is a refreshing and sweet option that is low in calories and high in vitamins and fiber.'
+  },
+  {
+    id: 5,
+    name: 'Double Cheeseburger',
+    category: 'burger',
+    image: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60',
+    price: '$14.99',
+    consumable: false,
+    nutrients: {
+      calories: 600,
+      protein: '25g',
+      fat: '35g',
+      carbohydrates: '45g'
+    },
+    description: 'The Double Cheeseburger is high in calories, fats, and carbohydrates, making it an unhealthy choice for regular consumption.'
+  },
+  {
+    id: 6,
+    name: 'Meat Lovers',
+    category: 'pizza',
+    image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHBpenphfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+    price: '$19.99',
+    consumable: false,
+    nutrients: {
+      calories: 700,
+      protein: '30g',
+      fat: '40g',
+      carbohydrates: '50g'
+    },
+    description: 'The Meat Lovers pizza is high in calories and saturated fats, making it a less healthy option for frequent meals.'
+  },
+  {
+    id: 7,
+    name: 'Wings',
+    category: 'chicken',
+    image: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2tlbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    price: '$11.49',
+    consumable: false,
+    nutrients: {
+      calories: 400,
+      protein: '25g',
+      fat: '25g',
+      carbohydrates: '10g'
+    },
+    description: 'Wings are typically deep-fried and high in calories and fats, making them a less healthy choice.'
+  },
+  {
+    id: 8,
+    name: 'Baked Chicken',
+    category: 'chicken',
+    image: 'https://images.unsplash.com/photo-1594221708779-94832f4320d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hpY2tlbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+    price: '$17.49',
+    consumable: false,
+    nutrients: {
+      calories: 300,
+      protein: '30g',
+      fat: '15g',
+      carbohydrates: '5g'
+    },
+    description: 'While Baked Chicken is generally healthier than fried options, the portion sizes and preparation can still lead to high calorie intake.'
+  },
+  {
+    id: 9,
+    name: 'Chicken Tenders',
+    category: 'chicken',
+    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNoaWNrZW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+    price: '$8.99',
+    consumable: false,
+    nutrients: {
+      calories: 250,
+      protein: '20g',
+      fat: '15g',
+      carbohydrates: '15g'
+    },
+    description: 'Chicken Tenders are usually breaded and fried, which increases their fat and calorie content, making them less healthy.'
+  },
+  {
+    id: 10,
+    name: 'Chicken Kabob',
+    category: 'chicken',
+    image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNoaWNrZW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+    price: '$13.49',
+    consumable: false,
+    nutrients: {
+      calories: 220,
+      protein: '25g',
+      fat: '10g',
+      carbohydrates: '8g'
+    },
+    description: 'Chicken Kabobs can be healthy, but they are often served with high-calorie sauces or sides that reduce their nutritional value.'
+  }
+];
+
+
 
 export const foodAllergies=[
   "Peanuts",
