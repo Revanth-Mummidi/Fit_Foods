@@ -32,7 +32,7 @@ function ItemsList({consumable,FoodItems}) {
             key={index}
             className="border mx-auto w-[30%] shadow-lg rounded-lg hover:scale-105 duration-300"
           >
-            <img
+                  <img
               src={item.image}
               alt={item.name}
               className="w-full h-[200px] object-cover rounded-t-lg"
