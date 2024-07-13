@@ -10,6 +10,7 @@ function HomeScreen() {
       <Navbar/>
         <Hero />
         <Category />
+
          {/* <HeadlineCards />  */}
         <SuggestedFood />
     </div>
