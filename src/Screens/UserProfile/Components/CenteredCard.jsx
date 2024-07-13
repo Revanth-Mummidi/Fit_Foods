@@ -36,12 +36,11 @@ const UserProfileCard = () => {
   };
 
   const handleSaveChanges = () => {
-    // Logic to save changes to the user's profile
     setEditMode(false);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-black to-gray-800">
+    <div className="flex items-center justify-center min-h-screen py-20 bg-gradient-to-r from-black to-gray-800">
     <div className="max-w-md w-full mx-4">
       <div className="bg-white shadow-lg rounded-lg p-6">
         <div className="photo-wrapper mb-4 text-center">

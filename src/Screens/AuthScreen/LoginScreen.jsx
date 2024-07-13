@@ -24,7 +24,7 @@ function LoginScreen() {
     dispatch(signInWithGoogle());
    }
   return (
-    <div>
+    <div  className="flex h-full w-full  justify-center flex-col">
       <h1 className="text-center text-4xl font-bold font-sans text-white ">
         Login
       </h1>
@@ -66,15 +66,15 @@ function LoginScreen() {
         </Link>
       </div>
       <hr></hr>
-      <div className="my-8 flex-1 flex-row flex gap-2">
+      <div className="mt-8 flex-1 flex-row flex gap-2">
         <div onClick={handleSignInWithGoogle}className="flex flex-1 flex-row justify-center align-baseline border border-sm hover:cursor-pointer hover:bg-gray-400 bg-white rounded-2xl p-2">
           <p className="font-bold">Google </p>
           <FcGoogle className="text-lg align-baseline justify-center flex m-1" />
         </div>
-        <div className="flex flex-1 flex-row justify-center align-baseline hover:cursor-pointer hover:bg-gray-400 border border-sm bg-white rounded-2xl p-2">
+        {/* <div className="flex flex-1 flex-row justify-center align-baseline hover:cursor-pointer hover:bg-gray-400 border border-sm bg-white rounded-2xl p-2">
           <p className="font-bold">Facebook </p>
           <SiFacebook className="text-lg align-baseline justify-center flex m-1" />
-        </div>
+        </div> */}
       </div>
       {/* <button onClick={()=>{
             setLogin(true);
