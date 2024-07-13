@@ -44,7 +44,7 @@ const Navbar = () => {
     }
   }
   );
-
+ console.log("ENV=",process.env);
   return (
     <>
       <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
@@ -56,6 +56,7 @@ const Navbar = () => {
           <Link to="/">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
               FIT <span className="font-bold">FOODS</span>
+              
             </h1>
           </Link>
         </div>
