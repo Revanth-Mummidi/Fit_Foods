@@ -3,7 +3,7 @@ import {
   AiOutlineMenu,
   AiOutlineSearch,
   AiOutlineClose,
-  AiFillTag,
+
 } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { FaAllergies } from "react-icons/fa";
