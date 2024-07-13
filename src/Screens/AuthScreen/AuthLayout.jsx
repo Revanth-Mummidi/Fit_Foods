@@ -28,7 +28,7 @@ function AuthLayout() {
                   
                 {/* </h2 > */}
                 <div className="flex items-center mt-8 mx-auto max-w-md">
-                    <div className="bg-transparent rounded-3xl backdrop-blur-xl border-4 py-8 px-4 shadow rounded-2xl sm:px-10 ">
+                    <div className="bg-transparent rounded-3xl backdrop-blur-xl border-4 py-8 px-4 shadow  sm:px-10 ">
                         <Outlet />
                     </div>
                 </div>
