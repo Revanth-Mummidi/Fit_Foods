@@ -13,7 +13,7 @@ function CategoryScreen() {
         <ItemsList consumable={true} FoodItems={HealthyFoodItems}/>
         </div>
         <div className='w-full flex flex-col'>
-        <p className='text-green-200 font-semibold text-2xl'>Consumable Items:</p>
+        <p className='text-red-500 font-semibold text-2xl'>Non Consumable Items:</p>
         <ItemsList consumable={false} FoodItems={UnhealthyFoodItems}/>
         </div>
     </div>
