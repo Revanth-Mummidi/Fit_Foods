@@ -24,11 +24,11 @@ function LoginScreen() {
     dispatch(signInWithGoogle());
    }
   return (
-    <div  className="flex h-full w-full  justify-center flex-col">
+    <div  className="flex h-[80vh] w-full  justify-center flex-col">
       <h1 className="text-center text-4xl font-bold font-sans text-white ">
         Login
       </h1>
-      <div className="flex flex-row justify-center align-baseline my-8 border-2 border-white p-3 rounded-3xl gap-2">
+      <div className="flex flex-row justify-center align-baseline my-4 border-2 border-white p-3 rounded-3xl gap-2">
         <input
           type="email"
           className="flex-1 placeholder-white placeholder:text-lg  bg-transparent focus:outline-none"
@@ -36,7 +36,7 @@ function LoginScreen() {
         />
         <MdEmail className="text-white align-baseline flex justify-end  text-3xl" />
       </div>
-      <div className="flex flex-row justify-center align-baseline my-8 border-2 border-white p-3 rounded-3xl gap-2">
+      <div className="flex flex-row justify-center align-baseline my-4 border-2 border-white p-3 rounded-3xl gap-2">
         <input
           type="password"
           className="flex-1 placeholder-white placeholder:text-lg  bg-transparent focus:outline-none"
@@ -55,27 +55,27 @@ function LoginScreen() {
         onClick={() => {
           setLogin(true);
         }}
-        className="flex flex-row justify-center bg-white align-baseline my-8 border-2 border-white p-3 rounded-3xl "
+        className="flex flex-row justify-center bg-white align-baseline my-4 border-2 border-white p-3 rounded-3xl "
       >
         <p className="font-bold">Login</p>
       </div>
-      <div className="flex flex-row justify-center align-baseline my-8 gap-2">
+      <div className="flex flex-row justify-center align-baseline my-4 gap-2">
         <p className="text-white">Don't have an account? </p>
         <Link className="text-white" to={`/auth/signup${location.search}`}>
           Register
         </Link>
       </div>
-      <hr></hr>
+      {/* <hr></hr>
       <div className="mt-8 flex-1 flex-row flex gap-2">
         <div onClick={handleSignInWithGoogle}className="flex flex-1 flex-row justify-center align-baseline border border-sm hover:cursor-pointer hover:bg-gray-400 bg-white rounded-2xl p-2">
           <p className="font-bold">Google </p>
           <FcGoogle className="text-lg align-baseline justify-center flex m-1" />
         </div>
-        {/* <div className="flex flex-1 flex-row justify-center align-baseline hover:cursor-pointer hover:bg-gray-400 border border-sm bg-white rounded-2xl p-2">
+        <div className="flex flex-1 flex-row justify-center align-baseline hover:cursor-pointer hover:bg-gray-400 border border-sm bg-white rounded-2xl p-2">
           <p className="font-bold">Facebook </p>
           <SiFacebook className="text-lg align-baseline justify-center flex m-1" />
-        </div> */}
-      </div>
+        </div>
+      </div> */}
       {/* <button onClick={()=>{
             setLogin(true);
         }}>login</button> */}
