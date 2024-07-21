@@ -153,20 +153,57 @@ export const UnhealthyFoodItems = [
   ];
 
 export const completeFoodItems = [
+  // {
+  //   "_id": "66990babb1ad3803478e728d",
+  //   "name": "Brown Rice",
+  //   "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRoXkEryIKpK7h7vCzq6mFpJ8MwCe1N84eQ&s",
+  //   "desc": "Whole grain rice with a nutty flavor and chewy texture.",
+  //   "nutrition": {
+  //     "energy": 1500,
+  //     "protein": 7.5,
+  //     "fat": 2,
+  //     "saturated-fat": 0.5,
+  //     "carbohydrate": 77,
+  //     "sugars": 0.5,
+  //     "dietary-fibre": 3.5,
+  //     "sodium": 10,
+  //     "potassium": 150
+  //   },
+  //   "categories": [
+  //     "6698f7f082c927d56df3c384"
+  //   ],
+  //   "nonConsumableByHealthIssues": [
+  //     "Diabetes"
+  //   ],
+  //   "nonConsumableByAllergies": [],
+  //   "createdAt": "2024-07-18T12:33:47.371Z",
+  //   "updatedAt": "2024-07-18T12:33:47.371Z",
+  //   "__v": 0
+  // }
   {
     id: 1,
     name: 'Kale Salad',
-    category: 'salad',
     image: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2FsYWQlMjBjZWFzYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-    price: '$12.99',
     consumable: true,
-    nutrients: {
-      calories: 150,
-      protein: '5g',
-      fat: '10g',
-      carbohydrates: '12g'
+    categories: [
+      {
+        name:"Salad"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      
+    ],
+    nonConsumableByAllergies: [],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Kale Salad is packed with nutrients and antioxidants, making it a great choice for a healthy and satisfying meal.'
+    desc: 'Kale Salad is packed with nutrients and antioxidants, making it a great choice for a healthy and satisfying meal.'
   },
   {
     id: 2,
@@ -175,13 +212,25 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2FsYWQlMjBjZWFzYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
     price: '$15.49',
     consumable: true,
-    nutrients: {
-      calories: 200,
-      protein: '8g',
-      fat: '15g',
-      carbohydrates: '10g'
+    categories: [
+      {
+        name:"Salad"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      
+    ],
+    nonConsumableByAllergies: [],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Caesar Salad is a delicious and creamy salad that provides a good balance of protein and healthy fats.'
+    desc: 'Caesar Salad is a delicious and creamy salad that provides a good balance of protein and healthy fats.'
   },
   {
     id: 3,
@@ -190,13 +239,25 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2FsYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
     price: '$18.99',
     consumable: true,
-    nutrients: {
-      calories: 250,
-      protein: '10g',
-      fat: '20g',
-      carbohydrates: '15g'
+    categories: [
+      {
+        name:"Salad"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      
+    ],
+    nonConsumableByAllergies: [],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Loaded Salad is a hearty option that includes a variety of toppings, offering a well-rounded meal with ample nutrients.'
+    desc: 'Loaded Salad is a hearty option that includes a variety of toppings, offering a well-rounded meal with ample nutrients.'
   },
   {
     id: 4,
@@ -205,13 +266,25 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1564093497595-593b96d80180?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnJ1aXQlMjBzYWxhZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
     price: '$9.99',
     consumable: true,
-    nutrients: {
-      calories: 100,
-      protein: '1g',
-      fat: '0.5g',
-      carbohydrates: '25g'
+    categories: [
+      {
+        name:"Salad"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      
+    ],
+    nonConsumableByAllergies: [],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Fruit Salad is a refreshing and sweet option that is low in calories and high in vitamins and fiber.'
+    desc: 'Fruit Salad is a refreshing and sweet option that is low in calories and high in vitamins and fiber.'
   },
   {
     id: 5,
@@ -220,13 +293,27 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1607013251379-e6eecfffe234?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVyZ2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60',
     price: '$14.99',
     consumable: false,
-    nutrients: {
-      calories: 600,
-      protein: '25g',
-      fat: '35g',
-      carbohydrates: '45g'
+    categories: [
+      {
+        name:"Meat"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      "High blood pressure",
+      "Heart disease",
+      "Obesity",
+    ],
+    nonConsumableByAllergies: ["Meat"],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'The Double Cheeseburger is high in calories, fats, and carbohydrates, making it an unhealthy choice for regular consumption.'
+    desc: 'The Double Cheeseburger is high in calories, fats, and carbohydrates, making it an unhealthy choice for regular consumption.'
   },
   {
     id: 6,
@@ -235,13 +322,27 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHBpenphfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     price: '$19.99',
     consumable: false,
-    nutrients: {
-      calories: 700,
-      protein: '30g',
-      fat: '40g',
-      carbohydrates: '50g'
+    categories: [
+      {
+        name:"Meat"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      "High blood pressure",
+      "Heart disease",
+      "Obesity",
+    ],
+    nonConsumableByAllergies: ["Meat"],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'The Meat Lovers pizza is high in calories and saturated fats, making it a less healthy option for frequent meals.'
+    desc: 'The Meat Lovers pizza is high in calories and saturated fats, making it a less healthy option for frequent meals.'
   },
   {
     id: 7,
@@ -250,13 +351,27 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2tlbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
     price: '$11.49',
     consumable: false,
-    nutrients: {
-      calories: 400,
-      protein: '25g',
-      fat: '25g',
-      carbohydrates: '10g'
+    categories: [
+      {
+        name:"Meat"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      "High blood pressure",
+      "Heart disease",
+      "Obesity",
+    ],
+    nonConsumableByAllergies: ["Meat"],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Wings are typically deep-fried and high in calories and fats, making them a less healthy choice.'
+    desc: 'Wings are typically deep-fried and high in calories and fats, making them a less healthy choice.'
   },
   {
     id: 8,
@@ -265,13 +380,27 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1594221708779-94832f4320d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hpY2tlbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
     price: '$17.49',
     consumable: false,
-    nutrients: {
-      calories: 300,
-      protein: '30g',
-      fat: '15g',
-      carbohydrates: '5g'
+    categories: [
+      {
+        name:"Meat"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      "High blood pressure",
+      "Heart disease",
+      "Obesity",
+    ],
+    nonConsumableByAllergies: ["Meat"],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'While Baked Chicken is generally healthier than fried options, the portion sizes and preparation can still lead to high calorie intake.'
+    desc: 'While Baked Chicken is generally healthier than fried options, the portion sizes and preparation can still lead to high calorie intake.'
   },
   {
     id: 9,
@@ -280,13 +409,27 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNoaWNrZW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     price: '$8.99',
     consumable: false,
-    nutrients: {
-      calories: 250,
-      protein: '20g',
-      fat: '15g',
-      carbohydrates: '15g'
+    categories: [
+      {
+        name:"Meat"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      "High blood pressure",
+      "Heart disease",
+      "Obesity",
+    ],
+    nonConsumableByAllergies: ["Meat"],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Chicken Tenders are usually breaded and fried, which increases their fat and calorie content, making them less healthy.'
+    desc: 'Chicken Tenders are usually breaded and fried, which increases their fat and calorie content, making them less healthy.'
   },
   {
     id: 10,
@@ -295,13 +438,27 @@ export const completeFoodItems = [
     image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNoaWNrZW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
     price: '$13.49',
     consumable: false,
-    nutrients: {
-      calories: 220,
-      protein: '25g',
-      fat: '10g',
-      carbohydrates: '8g'
+    categories: [
+      {
+        name:"Meat"
+      }
+    ],
+    nonConsumableByHealthIssues: [
+      "High blood pressure",
+      "Heart disease",
+      "Obesity",
+    ],
+    nonConsumableByAllergies: ["Meat"],
+    nutrition: {
+      energy: 1500,
+      protein: 7.5,
+      fat: 2,
+      carbohydrate: 77,
+      sugars: 0.5,
+      sodium: 10,
+      potassium: 150
     },
-    description: 'Chicken Kabobs can be healthy, but they are often served with high-calorie sauces or sides that reduce their nutritional value.'
+    desc: 'Chicken Kabobs can be healthy, but they are often served with high-calorie sauces or sides that reduce their nutritional value.'
   }
 ];
 

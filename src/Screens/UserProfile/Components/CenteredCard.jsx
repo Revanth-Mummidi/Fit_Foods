@@ -1,29 +1,39 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const UserProfileCard = () => {
-  const Auth=useSelector(state=>state.authslice);
+  // const Auth=useSelector(state=>state.authslice);
   
   const [userId, setUserId] = useState();
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const [Auth,setAuth]=useState(null);
+  const [password, setPassword] = useState("********");
+  const [firstName, setFirstName] = useState(Auth?.firstName);
+  const [lastName, setLastName] = useState(Auth?.lastName);
+  const [email, setEmail] = useState(Auth?.email);
   const [phone_number, setphone_number] = useState("");
   const [newImage, setNewImage] = useState("");
   const [editMode, setEditMode] = useState(false);
   
+  // useEffect(()=>{
+  //   if(Auth.isAuthenticated){
+  //     console.log("AUTh",Auth);
+    
+  //   let fname=Auth?.user?.displayName?.split(" ")[0] ;
+  //   let lname=Auth?.user?.displayName?.split(" ")[1];
+  //   setFirstName(fname);
+  //   setLastName(lname);
+  //   setEmail(Auth?.user?.email);
+  //   setphone_number(Auth?.user?.phoneNumber);
+  //   setNewImage(Auth?.user?.photoURL);
+  //   }
+  // },[Auth]);
+  
   useEffect(()=>{
-    if(Auth.isAuthenticated){
-    const fname=Auth.user.displayName.split(" ")[0];
-    const lname=Auth.user.displayName.split(" ")[1];
-    setFirstName(fname);
-    setLastName(lname);
-    setEmail(Auth.user.email);
-    setphone_number(Auth.user.phoneNumber);
-    setNewImage(Auth.user.photoURL);
-    }
-  },[Auth]);
+    handleGetData();
+
+  },[]);
+
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -35,8 +45,54 @@ const UserProfileCard = () => {
     }
   };
 
-  const handleSaveChanges = () => {
-    setEditMode(false);
+  const handleGetData=async()=>{
+    try{
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + "users/me/";
+      const response = await axios.get(MAIN_URL,
+       {
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+      // dispatch(setHealthIssuesAction(response.data.healthIssues));
+      setAuth(response.data)
+      setFirstName(response.data.firstName);
+      setLastName(response.data.lastName);
+      setEmail(response.data.email);
+      
+      console.log("RESPONSED=", response);
+    }
+    catch(err){
+      console.log("ERROR IN FETCHING USER PROFILE",err);
+    }
+  }
+
+  const handleSaveChanges = async() => {
+    try{
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + "users/me/";
+      const response = await axios.put(MAIN_URL,
+        {
+            firstName:firstName,
+            lastName:lastName,
+            email:email
+        },
+       {
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+      console.log("SAVED RESPONSE=",response);
+      setEditMode(false);
+    }
+    catch(err){
+      console.log("ERROR IN SAVING EDITED USER DETAILS",err)
+    }
   };
 
   return (
@@ -62,7 +118,7 @@ const UserProfileCard = () => {
             )}
           </div>
           <div className="p-2">
-            {editMode ? (
+            {/* {editMode ? (
               <div className="mb-2">
                 <label htmlFor="userId">User ID:</label>
                 <input
@@ -75,7 +131,7 @@ const UserProfileCard = () => {
               </div>
             ) : (
               <div>User ID: {userId}</div>
-            )}
+            )} */}
             {editMode ? (
               <div className="mb-2">
                 <label htmlFor="password">Password:</label>
@@ -83,7 +139,8 @@ const UserProfileCard = () => {
                   type="password"
                   id="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={true}
+                  // onChange={(e) => setPassword(e.target.value)}
                   className="w-full text-gray-700 border rounded px-2 py-1 focus:outline-none focus:border-indigo-500"
                 />
               </div>
@@ -132,7 +189,7 @@ const UserProfileCard = () => {
             ) : (
               <div>Email: {email}</div>
             )}
-            {editMode ? (
+            {/* {editMode ? (
               <div className="mb-2">
                 <label htmlFor="phone_number">Phone Number:</label>
                 <input
@@ -145,7 +202,7 @@ const UserProfileCard = () => {
               </div>
             ) : (
               <div>Phone Number: {phone_number}</div>
-            )}
+            )} */}
 
             <div className="text-center my-3">
               {editMode ? (

@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { foodAllergies } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllergiesAction } from "./redux/AllergiesSlice";
+import axios from "axios";
 
 function Allergies() {
   return (
@@ -18,7 +19,7 @@ export default Allergies;
 function ParentComponent() {
   const dispatch=useDispatch();
   const Allergy=useSelector(state=>state.allergyslice);
-  const [Allergies, setAllergies] = useState(Allergy.allergy);
+  const [Allergies, setAllergies] = useState([]);
   const [tagSuggestions, setTagSuggestions] = useState(foodAllergies);
   useEffect(()=>{
     let arr=tagSuggestions.filter((item,index)=>{
@@ -36,8 +37,33 @@ function ParentComponent() {
     dispatch(setAllergiesAction(Allergies));
   },[Allergies]);
 
+  const handleEditUserProfile=async(allergy)=>{
+    try{
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + "users/me/";
+      const response = await axios.put(MAIN_URL,
+        {
+          allergies:allergy,
+        }
+        ,
+        {
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+
+      console.log("RESPONSE=", response);
+    }
+    catch(err){
+      console.log("ERROR IN EDITING USER PROFILE",err);
+    }
+  }
+
   const addAllergies = (newAllergies) => {
     setAllergies([...Allergies, newAllergies]);
+    handleEditUserProfile([...Allergies, newAllergies])
   };
 
   const removeAllergies = (index) => {
@@ -45,7 +71,31 @@ function ParentComponent() {
     setTagSuggestions(arr);
     const updatedAllergies = Allergies.filter((_, i) => i !== index);
     setAllergies(updatedAllergies);
+    handleEditUserProfile(updatedAllergies);
   };
+  useEffect(()=>{
+    handleGetData();
+  },[])
+  const handleGetData=async()=>{
+    try{
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + "users/me/";
+      const response = await axios.get(MAIN_URL,
+       {
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+      // dispatch(setHealthIssuesAction(response.data.healthIssues));
+      setAllergies(response.data.allergies)
+      console.log("RESPONSED=", response);
+    }
+    catch(err){
+      console.log("ERROR IN FETCHING USER PROFILE",err);
+    }
+  }
 
   return (
     <div className=" mx-auto p-4 text-white min-h-screen bg-gradient-to-r from-black to-gray-800">

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {  HealthyFoodItems, UnhealthyFoodItems } from "../../../data/data.js";
 import { useNavigate, useNavigation } from "react-router-dom";
+import axios from "axios";
 
 const SuggestedFood = () => {
   //   console.log(data);
@@ -23,7 +24,48 @@ const SuggestedFood = () => {
   //     })
   //   );
   // };
+  // const [Data,setData]=useState([]);
+  const [UserData,setUserData]=useState([]);
+  const [ConsumableItems,setConsumableItems]=useState([]);
+  const [NonConsumableItems,setNonConsumableItems]=useState([]);
+  useEffect(()=>{
+    handleGetFoodItemsList();
+  },[]);
 
+  const handleGetFoodItemsList=async()=>{
+    try {
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + `foods/suggestions`;
+      const response = await axios.get(MAIN_URL,{
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+    
+      console.log("SUGGEST=", response);
+      let arr=response.data;
+      let con=[],ncon=[];
+      arr.map((item,index)=>{
+        if(item.consumable)
+        {
+          con.push(item);
+        }
+        else{
+          ncon.push(item);
+        }
+      })
+      setConsumableItems(con);
+      setNonConsumableItems(ncon);
+    } catch (err) {
+      
+      console.log("ERROR IN GETTING FOOD ITEMS", err);
+      
+    } 
+  }
+  
+ 
   return (
     <div className="max-w-[1640px] m-auto px-4 ">
       <h1 className="text-orange-600 font-bold text-4xl text-center mb-4">
@@ -34,26 +76,26 @@ const SuggestedFood = () => {
       </h1>
 
       {/* Display foods */}
-      <Consumable />
+      <Consumable ConsumableItems={ConsumableItems} />
       <h1 className="text-black-600 font-medium text-2xl my-2">
         Avoid these Foods
       </h1>
 
       {/* Display foods */}
-      <NonConsumable />
+      <NonConsumable NonConsumableItems={NonConsumableItems} />
     </div>
   );
 };
 
-function Consumable() {
-  const [foods, setFoods] = useState(HealthyFoodItems);
+function Consumable({ConsumableItems}) {
+  console.log("CONS=",ConsumableItems)
   const navigate=useNavigate();
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-      {foods.slice(0, 4).map((item, index) => (
+      {ConsumableItems.map((item, index) => (
         <div
           onClick={()=>{
-            navigate(`/fooditem/${item.name}`)
+            navigate(`/fooditem/${item._id}`)
           }}
           key={index}
           className="border shadow-lg rounded-lg hover:scale-105 duration-300"
@@ -77,15 +119,16 @@ function Consumable() {
   );
 }
 
-function NonConsumable() {
-  const [foods, setFoods] = useState(UnhealthyFoodItems);
+function NonConsumable({NonConsumableItems}) {
+  console.log("NONCONS=",NonConsumableItems)
+  // const [foods, setFoods] = useState(NonConsumableItems);
   const navigate=useNavigate();
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-      {foods.slice(0, 4).map((item, index) => (
+      {NonConsumableItems.map((item, index) => (
         <div
         onClick={()=>{
-          navigate(`/fooditem/${item.name}`)
+          navigate(`/fooditem/${item._id}`)
         }}
           key={index}
           className="border shadow-lg rounded-lg hover:scale-105 duration-300"

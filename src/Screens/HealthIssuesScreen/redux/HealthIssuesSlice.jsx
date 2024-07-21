@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
    health_issues:[],
+   
 };
 
 const HealthIssueSlice = createSlice({

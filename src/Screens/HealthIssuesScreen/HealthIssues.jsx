@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { Health_Issues } from "../../data/data";
 import { useDispatch, useSelector } from "react-redux";
 import { setHealthIssuesAction } from "./redux/HealthIssuesSlice";
+import axios from "axios";
 
 function HealthIssues() {
   return (
@@ -18,7 +19,7 @@ export default HealthIssues;
 function ParentComponent() {
   const dispatch=useDispatch();
   const HTSlice=useSelector(state=>state.healthissueslice.health_issues);
-  const [healthIssues, setHealthIssues] = useState(HTSlice);
+  const [healthIssues, setHealthIssues] = useState([]);
   const [tagSuggestions, setTagSuggestions] = useState(Health_Issues);
   useEffect(()=>{
     let arr=tagSuggestions.filter((item,index)=>{
@@ -34,9 +35,34 @@ function ParentComponent() {
     })
     setTagSuggestions(arr);
     dispatch(setHealthIssuesAction(healthIssues));
+    
   },[healthIssues]);
+  const handleEditUserProfile=async(health_issues)=>{
+    try{
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + "users/me/";
+      const response = await axios.put(MAIN_URL,
+        {
+          healthIssues:health_issues,
+        }
+        ,
+        {
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+
+      console.log("RESPONSE=", response);
+    }
+    catch(err){
+      console.log("ERROR IN EDITING USER PROFILE",err);
+    }
+  }
   const addHealthIssue = (newHealthIssue) => {
     setHealthIssues([...healthIssues, newHealthIssue]);
+    handleEditUserProfile([...healthIssues, newHealthIssue]);
   };
 
   const removeHealthIssue = (index) => {
@@ -45,8 +71,31 @@ function ParentComponent() {
     const updatedHealthIssues = healthIssues.filter((_, i) => i !== index);
 
     setHealthIssues(updatedHealthIssues);
+    handleEditUserProfile(updatedHealthIssues);
   };
+  useEffect(()=>{
+    handleGetData();
+  },[])
+  const handleGetData=async()=>{
+    try{
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
 
+      let MAIN_URL = BASE_URL + "users/me/";
+      const response = await axios.get(MAIN_URL,
+       {
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+      // dispatch(setHealthIssuesAction(response.data.healthIssues));
+      setHealthIssues(response.data.healthIssues)
+      console.log("RESPONSED=", response);
+    }
+    catch(err){
+      console.log("ERROR IN FETCHING USER PROFILE",err);
+    }
+  }
   return (
     <div className=" mx-auto p-4 text-white min-h-screen bg-gradient-to-r from-black to-gray-800">
       <h1 className="text-4xl mb-4">Select Health Issues</h1>

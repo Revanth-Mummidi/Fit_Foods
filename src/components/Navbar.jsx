@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AiOutlineMenu,
   AiOutlineSearch,
@@ -12,7 +12,8 @@ import { CgWebsite } from "react-icons/cg";
 import { MdFavorite } from "react-icons/md";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signOutUser } from "../Screens/AuthScreen/redux/AuthSlice";
+import { setUserSignInState, signOutUser } from "../Screens/AuthScreen/redux/AuthSlice";
+import axios from "axios";
 
 const SearchItems = [
   "Kale Salad",
@@ -27,29 +28,79 @@ const SearchItems = [
   "Chicken Kabob",
 ];
 
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const Auth = useSelector((state) => state.authslice);
+  const [data,setData]=useState([]);
+  const [isLoading,setLoading]=useState(true);
   const navigation = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
+  useEffect(()=>{
+    fetchData();
+    console.log(data);
+  },[searchTerm]);
+  const fetchData=async()=>{
+    try {
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
 
-  // Function to filter search suggestions based on user input
-  const filteredSuggestions = SearchItems.filter((item) =>
+      let MAIN_URL = BASE_URL + `foods?search=${searchTerm}`;
+      const response = await axios.get(MAIN_URL,{
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+      setData(response.data);
+      console.log("RESPONSE=", response);
+
+    } catch (err) {
+      
+      console.log("ERROR IN GETTING FOOD ITEMS", err);
+      
+    } 
+  }
+  const filteredSuggestions = data.map((item,index) =>
    {
-     if(searchTerm!=""){
-     return item.toLowerCase().includes(searchTerm.toLowerCase())
+    
+     if(item){
+     return item;
     
     }
   }
   );
- console.log("ENV=",process.env);
+  const handleLogout=async()=>{
+    try {
+      let BASE_URL = process.env.REACT_APP_BASE_URL;
+
+      let MAIN_URL = BASE_URL + "users/logout/";
+      const response = await axios.post(MAIN_URL,{},{
+        withCredentials:true,
+        headers:{
+          "Content-Type":"application/json",
+        },
+      });
+
+      console.log("RESPONSE=", response);
+      
+      dispatch(
+        setUserSignInState({
+          user: null,
+          isAuthenticated: false,
+          isLoading: true,
+        })
+      );
+    } catch (err) {
+      console.log("ERROR IN REGISTERING", err);
+    }
+  }
   return (
     <>
       <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
         {/* Left side */}
-        <div className="flex items-center">
+        <div className="flex items-center ml-4">
           <div onClick={() => setNav(!nav)} className="cursor-pointer">
             <AiOutlineMenu size={30} />
           </div>
@@ -74,16 +125,16 @@ const Navbar = () => {
               }}
           />
         {/* Suggestions dropdown */}
-        {filteredSuggestions.length > 0 && (
+        {(searchTerm!="") && (
           <div className="absolute mt-1 bg-white shadow-lg rounded-lg w-[400px] top-9 mx-auto z-10">
-            {filteredSuggestions.map((item, index) => (
+            {data.map((item, index) => (
               <Link
                 key={index}
-                to={`/fooditem/${encodeURIComponent(item)}`}
+                to={`/fooditem/${item._id}`}
                 className="block py-2 px-4 text-gray-800 hover:bg-gray-200"
                 onClick={() => setSearchTerm("")}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </div>
@@ -95,9 +146,10 @@ const Navbar = () => {
         {Auth.isAuthenticated ? (
           <button
             onClick={() => {
-              console.log("Auth = ", Auth.user);
-              dispatch(signOutUser());
-              navigation("/");
+              // console.log("Auth = ", Auth.user);
+              // dispatch(signOutUser());
+              handleLogout();
+              navigation("/auth/signup");
             }}
             className="bg-black mx-2 text-white hidden md:flex items-center py-2 rounded-full"
           >

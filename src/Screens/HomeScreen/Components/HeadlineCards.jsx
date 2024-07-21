@@ -46,7 +46,7 @@ const HeadlineCards = () => {
     // { name: "vegetables" },
   ];
   return (
-    <div className="max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6 bg-gradient-to-r from-black to-gray-800">
+    <div className="min-w-screen min-h-screen mx-auto p-4 py-12 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-1 gap-6 bg-gradient-to-r from-black to-gray-800">
       {list.map((category) => (
         <div className="rounded-xl relative">
           {/* Overlay */}
