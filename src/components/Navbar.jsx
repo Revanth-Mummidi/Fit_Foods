@@ -92,7 +92,7 @@ const Navbar = () => {
           isLoading: true,
         })
       );
-      navigation("/auth/login");
+      navigation('/auth/signup');
     } catch (err) {
       console.log("ERROR IN REGISTERING", err);
     }
