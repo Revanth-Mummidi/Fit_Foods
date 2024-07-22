@@ -92,6 +92,7 @@ const Navbar = () => {
           isLoading: true,
         })
       );
+      navigation("/auth/login");
     } catch (err) {
       console.log("ERROR IN REGISTERING", err);
     }
