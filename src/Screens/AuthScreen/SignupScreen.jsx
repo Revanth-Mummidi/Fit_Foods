@@ -42,12 +42,14 @@ function SignupScreen() {
       };
     
      
-      const response = await axios.post(MAIN_URL,data,{
-        withCredentials:"include",
-        headers:{
-          "Content-Type":"application/json",
-        }
-      });
+      const response = await axios.post(MAIN_URL,data
+      //   ,{
+      //   withCredentials:"include",
+      //   headers:{
+      //     "Content-Type":"application/json",
+      //   }
+      // }
+    );
 
       console.log("RESPONSE=", response);
     } catch (err) {
