@@ -36,14 +36,14 @@ const Category = () => {
         All Categories
       </h1>
       {/* Categories */}
-      <div className='grid grid-cols-2 md:grid-cols-4 gap-6 py-6'>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-6'>
         {data.map((item, index) => (
           <div
           onClick={()=>{
             navigate(`/categories/${item._id}`)
           }}
             key={index}
-            className='bg-gray-100 rounded-lg p-4 flex justify-between items-center transition bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black'
+            className='bg-gray-100 rounded-lg p-4 flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between items-center transition bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black'
           >
             <h2 className='font-bold sm:text-xl text-cyan-50 '>{item.name}</h2>
             <img src={item.image} alt={item.name} className='w-20' />

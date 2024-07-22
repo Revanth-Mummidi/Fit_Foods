@@ -21,7 +21,7 @@ function AuthLayout() {
   },[isAuthenticated]);
   
   return (
-    <div className="min-h-screen relative flex items-center">
+    <div className="min-h-screen relative flex items-center min-w-screen">
             <img src="https://raw.githubusercontent.com/bedimcode/login-form/main/assets/img/login-bg.png" alt="background image"  className='h-full w-full absolute object-cover' />
             <div className=" mx-auto ">
                 {/* <h2 onClick={() => setLogin(true)} className=""> */}

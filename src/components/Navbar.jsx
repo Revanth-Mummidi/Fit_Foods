@@ -8,6 +8,8 @@ import {
 import { CgProfile } from "react-icons/cg";
 import { FaAllergies } from "react-icons/fa";
 import { IoDocuments } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
+
 import { CgWebsite } from "react-icons/cg";
 import { MdFavorite } from "react-icons/md";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
@@ -152,14 +154,17 @@ const Navbar = () => {
               handleLogout();
               navigation("/auth/signup");
             }}
-            className="bg-black mx-2 text-white hidden md:flex items-center py-2 rounded-full"
+            className="sm:bg-black flex  border-0  mx-2 text-white  items-center sm:py-2 rounded-full"
           >
             <img
               src={Auth.user.photoURL}
-              className="mr-4 h-7 w-7 rounded-full"
+              className="sm:mr-4 h-7 hidden sm:flex aspect-square rounded-full"
               alt="User Profile"
             />
-            Logout
+            <IoIosLogOut style={{color:"black"}} size={25} className=" flex sm:hidden" />
+            <p className="sm:block hidden" >
+              Logout
+              </p>
             {/* Animationan */}
           </button>
         ) : (
@@ -173,7 +178,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={`/auth/signup?next=${location.pathname}`}
-              className="bg-black text-white hidden md:flex justify-center px-4 flex items-center p-2 rounded-full"
+              className="bg-black text-white hidden md:flex justify-center px-4  items-center p-2 rounded-full"
             >
               <CgProfile size={25} className="mr-4" />
               Signup

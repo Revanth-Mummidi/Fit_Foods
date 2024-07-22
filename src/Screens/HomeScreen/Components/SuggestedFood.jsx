@@ -105,14 +105,14 @@ function Consumable({ConsumableItems}) {
             alt={item.name}
             className="w-full h-[200px] object-cover rounded-t-lg"
           />
-          <div className="flex justify-between px-2 py-4">
-            <p className="font-bold">{item.name}</p>
-            <p>
-              <span className="bg-green-500 text-white p-2  rounded-full ">
-                Consumable
-              </span>
-            </p>
-          </div>
+          <div className="flex flex-col gap-6 my-4  sm:gap-0 items-center sm:flex-row sm:justify-between sm:items-center px-2 ">
+              <p className="font-bold text-black">{item.name}</p>
+              <p className='w-full p-2 sm:w-auto  sm:p-0 bg-green-700 sm:bg-transparent text-center sm:text-right'>
+                <div className={`${1?"bg-green-700":"bg-red-700"} text-white p-2 text-center  sm:rounded-full `}>
+                  {1?"Consumable":"Non Consumable"}
+                </div>
+              </p>
+            </div>
         </div>
       ))}
     </div>
@@ -138,14 +138,14 @@ function NonConsumable({NonConsumableItems}) {
             alt={item.name}
             className="w-full h-[200px] object-cover rounded-t-lg"
           />
-          <div className="flex justify-between px-2 py-4">
-            <p className="font-bold">{item.name}</p>
-            {/* <p> */}
-              <span className="bg-red-500 text-sm text-white p-2 rounded-full">
-                Non Consumable
-              </span>
-            
-          </div>
+         <div className="flex flex-col gap-6 my-4  sm:gap-0 items-center sm:flex-row sm:justify-between sm:items-center px-2 ">
+              <p className="font-bold text-black w-auto">{item.name}</p>
+              <p className='w-full p-2 sm:w-auto  sm:p-0 bg-red-700 sm:bg-transparent text-center sm:text-right'>
+                <div className={`${0?"sm:bg-green-700":"bg-red-700"} text-white p-2 text-center  items-center flex justify-center  sm:rounded-full `}>
+                  {0?"Consumable":"Non Consumable"}
+                </div>
+              </p>
+            </div>
         </div>
       ))}
     </div>

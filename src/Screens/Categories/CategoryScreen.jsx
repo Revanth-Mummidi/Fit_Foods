@@ -74,19 +74,19 @@ function ItemsList({consumable,FoodItems}) {
               navigate(`/fooditem/${item._id}`)
             }}
             key={index}
-            className="border mx-auto w-[30%] shadow-lg rounded-lg hover:scale-105 duration-300"
+            className="border mx-auto w-[290px] shadow-lg rounded-lg hover:scale-105 duration-300"
           >
                   <img
               src={item.image}
               alt={item.name}
               className="w-full h-[200px] object-cover rounded-t-lg"
             />
-            <div className="flex justify-between px-2 py-4">
+            <div className="flex flex-col gap-6 my-4  sm:gap-0 items-center sm:flex-row sm:justify-between sm:items-center px-2 ">
               <p className="font-bold text-white">{item.name}</p>
-              <p>
-                <span className={`${consumable?"bg-green-700":"bg-red-700"} text-white p-2  rounded-full `}>
+              <p className='w-full sm:w-auto sm:text-right'>
+                <div className={`${consumable?"bg-green-700":"bg-red-700"} text-white p-2 text-center sm:rounded-full `}>
                   {consumable?"Consumable":"Non Consumable"}
-                </span>
+                </div>
               </p>
             </div>
           </div>

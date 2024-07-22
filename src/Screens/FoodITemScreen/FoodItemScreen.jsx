@@ -11,7 +11,7 @@ function FoodItemScreen() {
   const [catergoies,setCatergories]=useState("");
   const [isLoading,SetLoading]=useState(false);
   useEffect(() => {
-    
+  
    handleGetItem();
     handleGetUserData();
 
@@ -49,7 +49,7 @@ function FoodItemScreen() {
 
   const handleGetUserData = async () => {
     try {
-
+      SetLoading(true);
       let BASE_URL = process.env.REACT_APP_BASE_URL;
 
       let MAIN_URL = BASE_URL + "users/me/";
@@ -129,6 +129,7 @@ function FoodItemScreen() {
       });
 
       setItem(response.data);
+      SetLoading(false);
       console.log("RESPONSE=", response.data);
     } catch (err) {
       console.log("ERROR IN GETTING FOOD ITEM", err);
@@ -146,10 +147,10 @@ function FoodItemScreen() {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center p-10 bg-gradient-to-r from-black to-gray-800">
-      {!isLoading?(<div className="flex flex-col gap-4 items-center p-10 h-full w-[40vw] bg-white overflow-y-scroll rounded-lg shadow-md shadow-slate-100">
+      {!isLoading?(<div className="flex flex-col gap-4 items-center p-10 h-full w-full bg-white overflow-y-scroll overflow-x-scroll rounded-lg shadow-md shadow-slate-100">
         <img
           src={item?.image}
-          className="w-full h-[40%] bg-black object-cover"
+          className="w-full h-[40%] bg-black object-stretch"
           alt="Food Item"
         />
         <p className="font-semibold text-black text-2xl">{item?.name}</p>
