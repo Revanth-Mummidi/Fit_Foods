@@ -147,10 +147,10 @@ function FoodItemScreen() {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center p-10 bg-gradient-to-r from-black to-gray-800">
-      {!isLoading?(<div className="flex flex-col gap-4 items-center p-10 h-full w-full bg-white overflow-y-scroll overflow-x-scroll rounded-lg shadow-md shadow-slate-100">
+      {!isLoading?(<div className="flex flex-col gap-4 items-center p-10  w-full md:w-[50vw] h-[70vh] max-w-[900px] bg-white overflow-y-scroll overflow-x-scroll rounded-lg shadow-md shadow-slate-100">
         <img
           src={item?.image}
-          className="w-full h-[40%] bg-black object-stretch"
+          className="w-full h-[40%] bg-black object-fit"
           alt="Food Item"
         />
         <p className="font-semibold text-black text-2xl">{item?.name}</p>
