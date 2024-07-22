@@ -50,6 +50,7 @@ function SignupScreen() {
         }
       }
     );
+    setregister(true);
 
       console.log("RESPONSE=", response);
     } catch (err) {
@@ -114,7 +115,7 @@ function SignupScreen() {
             setPassword("");
           } else {
             handleRegistration();
-            setregister(true);
+           
           }
           console.log("REGISTERED");
         }}
